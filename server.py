@@ -7,6 +7,7 @@ app = Flask(__name__)
 @app.route('/ping')
 @app.route('/')
 def ping():
+    response.headers.add('Access-Control-Allow-Origin', '*')
     return 'pong!'
 @app.route('/calculate')
 def calculate():
@@ -14,6 +15,7 @@ def calculate():
     rooms = request.args.get("rooms")
     sqft = request.args.get("sqft")
     greenft = request.args.get("greenft")
+    response.headers.add('Access-Control-Allow-Origin', '*')
     return f'''
     {response['a']}, {response['b']}, {response['c']}
     rooms {rooms}
