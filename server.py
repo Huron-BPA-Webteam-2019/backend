@@ -17,7 +17,7 @@ def price():
     sqft = float(request.args.get("sqft"))
     greenft = float(request.args.get("greenft"))
     val = calculate(rooms, sqft, greenft, data)
-    resp = Response(val)
+    resp = Response(str(val))
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
