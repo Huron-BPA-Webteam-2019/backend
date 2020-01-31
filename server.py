@@ -8,7 +8,8 @@ app = Flask(__name__)
 @app.route('/')
 def ping():
     return 'pong!'
-@app.route('/calculate'):
+@app.route('/calculate')
+def calculate():
     response = requests.get('https://api.myjson.com/bins/14s9u2').json()
     rooms = request.args.get("rooms")
     sqft = request.args.get("sqft")
