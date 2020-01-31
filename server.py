@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from flask import Response
 import requests
 import json
 app = Flask(__name__)
@@ -15,7 +16,7 @@ def calculate():
     rooms = request.args.get("rooms")
     sqft = request.args.get("sqft")
     greenft = request.args.get("greenft")
-    resp = flask.Response({'price': data['a'] * rooms + data['b'] * sqft + data['c'] * greenft})
+    resp = Response({'price': data['a'] * rooms + data['b'] * sqft + data['c'] * greenft})
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 if __name__ == '__main__':
