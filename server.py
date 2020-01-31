@@ -15,8 +15,8 @@ def calculate():
     rooms = request.args.get("rooms")
     sqft = request.args.get("sqft")
     greenft = request.args.get("greenft")
-    resp = {'price': data['a'] * rooms + data['b'] * sqft + data['c'] * greenft}
-    response.headers['Access-Control-Allow-Origin'] = '*'
+    resp = flask.Response({'price': data['a'] * rooms + data['b'] * sqft + data['c'] * greenft})
+    resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 if __name__ == '__main__':
     app.run(port=5000)
